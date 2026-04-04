@@ -1,1 +1,0 @@
-# neha-script.js
