@@ -19,12 +19,14 @@ const questions = [];
 
 // DOM लोड होने के बाद डेटा कलेक्ट करें
 document.querySelectorAll(".question-data").forEach(qEl => {
-  const q = qEl.querySelector(".q").innerText;
-  const opts = Array.from(qEl.querySelectorAll(".opt")).map(el => el.innerText);
+  // innerText की जगह innerHTML इस्तेमाल करें ताकि इमेज टैग भी आ सके
+  const q = qEl.querySelector(".q").innerHTML; 
+  const opts = Array.from(qEl.querySelectorAll(".opt")).map(el => el.innerHTML);
   const ans = parseInt(qEl.getAttribute("data-answer"));
   const explanation = qEl.getAttribute("data-explanation") || "";
   questions.push({ question: q, options: opts, answer : ans, explanation: explanation });
 });
+
 
 function renderAllQuestions() {
   let html = "";
